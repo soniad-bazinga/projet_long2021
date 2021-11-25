@@ -1,0 +1,8 @@
+<25/11/2021>
+* sujet : génération de mélodie à partir d'une peinture
+* se concentrer sur les peintures abstraties (détecter forme et couleurs ?)
+* TODO :
+  - se renseigner sur les bibliothèques midi (en java ?).
+  - regarder aussi les langages de génération de musique
+  - se renseigner sur les bibliothèques d'analyse d'image
+  - écrire un petit rapport sur ces recherche
