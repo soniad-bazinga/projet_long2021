@@ -6,3 +6,11 @@
   - regarder aussi les langages de génération de musique
   - se renseigner sur les bibliothèques d'analyse d'image
   - écrire un petit rapport sur ces recherche
+
+<02/12/2021>
+* FAIT:
+- documentation (partie ML/DL, langage de génération de musique, traitement d'image)
+* TODO :
+- mettre en avant la partie traitement d'image
+- réfléchir sur comment le programme va interpréter les informations à partir des entrées
+- commencer à travailler sur le prétraitement des entrées
