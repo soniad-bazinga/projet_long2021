@@ -1,36 +1,40 @@
-import java.awt.Color;
+
 
 public class Writer {
-    //TODO enum ??
-    static final String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
+    static String[] rangeNotes = new String[7];
 
-    //On cherche à établir les correspondances couleur/note selon
-    //la description données dans parseIntToColor.pdf
-    static String rangeBase(int r, int g, int b){
-        r /= 85;
-        g /= 85;
-        b /= 85;
-
-        if (r==0 && g==0 && b==0) return notes[6];
-        else if (r==1 && g==1 && b==1) return notes[9];
-        else if (r==2 && g==2 && b==2) return notes[5];
-        else if (r==0 && (g==0 || r==2)) return notes[0];
-        else if ((g==2 && b==2) || (g==b && r==0)) return notes[1];
-        else if ((r==0 || r==1) && g==2 && b==1) return notes[2];
-        else if (r==0 && b==0) return notes[3];
-        else if (r==1 && (g==1 || g==2) && r==0) return notes[4];
-        else if (r==2 && g==2) return notes[5];
-        else if (r==2 && g==1 && b==0) return notes[6];
-        else if ((r==1 || r==2) && g==0 && b==0) return notes[7];
-        else if (r==2 && (g==0 || g==1) && b==1) return notes[8];
-        else if (r==2 && g==0 && b==2) return notes[9];
-        else if ((r==b) && g<r) return notes[10];
-        else return notes[11];
+    //On peut imaginer un argument forme pour marquer la rythmique
+    //TODO : change times, add choir etc
+    enum Forme {ROND, TRIANGLE, CARRE};
+    static String backSample(Forme f) throws CustomExc{
+        if (!Utilities.isNull(rangeNotes)){
+            String ret = "200.times do\n\tplay :"+rangeNotes[0]+"\n\tsleep 0.5\n\tplay :"+
+            rangeNotes[1]+"\n\tsleep 0.5\n\tplay :"+rangeNotes[2]+"\n\tsleep 0.5\n";
+            switch(f){
+                case ROND:
+                    return ret + "\tplay :"+rangeNotes[1]+"end";
+                case TRIANGLE:
+                    return ret + "end";
+                case CARRE:
+                return "";
+            }
+  
+        }
+ 
+        throw new CustomExc("rangeNote null.");
+    
     }
 
-    public static void main (String[] args){
-        System.out.println("Notes:"); Utilities.print(notes);
-        Test.testRangeBase();
+    static void setRangeNotes(int range, boolean mode){
+        for (int i=0; i<3; i++)
+            rangeNotes[i]=Convert.notes[(range+i*2)%12];
+        
+        if (mode) rangeNotes[2]=Convert.notes[(range+4)%12];
+        else rangeNotes[2]=Convert.notes[(range+3)%12];
+
+        for (int i=3; i<7; i++)
+            rangeNotes[i]=Convert.notes[(range+i*2-1)%12];
+
     }
 
 }
