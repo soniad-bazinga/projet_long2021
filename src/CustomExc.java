@@ -1,6 +1,12 @@
-public class CustomExc extends Exception{
-    public CustomExc(String error){
+
+class PatternNotExhaustive extends Exception{
+    public PatternNotExhaustive(String error){
         super(error);
-    }
-    
-}
+    }   
+}  
+
+class RangeNoteNull extends Exception{
+    public RangeNoteNull(){
+        super("");
+    }   
+}  

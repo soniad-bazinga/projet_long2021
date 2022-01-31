@@ -5,7 +5,7 @@ public class Convert{
 
     //On cherche à établir les correspondances couleur/note selon
     //la description données dans parseIntToColor.pdf
-    static int rangeBase(int r, int g, int b) {
+    static int rangeBase(int r, int g, int b) throws PatternNotExhaustive{
         r /= 85;
         g /= 85;
         b /= 85;
@@ -25,14 +25,8 @@ public class Convert{
         else if (r==2 && g==0 && b==2) return 9;
         else if ((r==b) && g<r) return 10;
         else if (r==1 && b==2) return 11;
-
-        try {
-            throw new CustomExc("Pattern-matching not exhaustive : " +"value rgb "+ String.valueOf(r)+ String.valueOf(g)+ String.valueOf(b)+ " not catched.");
-        }catch (CustomExc ex){
-            System.out.println(ex.getMessage());
-            System.exit(0);
-        }
-        return -1;
+        
+        throw new PatternNotExhaustive("value rgb "+ String.valueOf(r)+ String.valueOf(g)+ String.valueOf(b)+ " not catched.");
     }
 
     static boolean mode(int r, int g, int b){

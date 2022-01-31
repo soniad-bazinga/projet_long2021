@@ -1,8 +1,10 @@
 JCC = javac
 JFLAGS = -g
 
-default: Writer.class Convert.class Utilities.class Test.class Main.class
+default: Exception Writer.class Convert.class Utilities.class Test.class Main.class 
 		java Main
+
+Exception : RangeNoteNull.class PatternNotExhaustive.class
 
 Writer.class: Writer.java
 		$(JCC) $(JFLAGS) Writer.java
@@ -18,6 +20,12 @@ Test.class: Test.java
 
 Main.class: Main.java
 		$(JCC) $(JFLAGS) Main.java
+
+RangeNoteNull.class: CustomExc.java
+		$(JCC) $(JFLAGS) CustomExc.java
+
+PatternNotExhaustive.class: CustomExc.java
+		$(JCC) $(JFLAGS) CustomExc.java
 
 clean: 
 		$(RM) *.class
