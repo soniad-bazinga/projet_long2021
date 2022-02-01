@@ -35,7 +35,6 @@ public class Writer {
         }
  
         throw new RangeNoteNull();
-    
     }
 
 }
