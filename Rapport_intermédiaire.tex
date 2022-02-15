@@ -1,0 +1,51 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+
+%% This package is necessary to use \includegraphics.
+\usepackage{graphicx}
+
+%% This package is necessary to define hyperlinks.
+\usepackage{hyperref}
+
+%% These packages are necessary to include code.
+\usepackage{listings}
+%%\usepackage{minted} % colored
+
+%% This package is needed to enchance mathematical formulas.
+\usepackage{amsmath}
+
+
+
+% This is a comment line in latex
+
+% Latex allows you to define your own "commands",
+% better known as "macros" in the Latex world.
+% The following line is an example of such definition.
+\newcommand{\latex}{\LaTeX}
+
+
+% The next lines contain some meta informations about this document.
+
+\title{Rapport intermédiaire}
+\author{DAHMANI Sonia, SANTOS DUARTE Elsa}
+\date{18.02.2022}
+\begin{document}
+	
+\maketitle
+
+\section{Présentation générale}
+	Le but de ce projet est de convertir des images en mélodie. Pour ce faire, le code est principalement divisé en deux parties. D'une part, du code python, permettant l'analyse d'images et leur traduction en données formelles. Et d'autre part, du code java, récupérant ces données formelles et les transformant en code Sonic-pi pour la création de mélodies.
+	\subsection{Analyse d'images et production de données formelles}
+	\subsection{Traduction de données formelles en mélodie}
+		Dans cette partie on souhaite convertir les données formelles telles que les entiers rgb, les formes ou encore leur taille en mélodie. On doit donc établire une correspondance de l'une à l'autre. Les couleurs servent à la hauteur de note : la gamme est traduite depuis la couleur dominante, les accords 
+\section{Réalisé jusqu'ici}
+	\subsection{Analyse d'images et production de données formelles}
+	\subsection{Traduction de données formelles en mélodie}
+		La première étape a été d'établir une correspondance couleur/note. Dans un premier temps, et pour faciliter les correspondances, les couleurs on été réduites en intervalle rgb tel que $r,g,b \in [0,2]$. Ainsi, si $r$, $g$ ou $b$ sont compris entre $0$ et $85$, ils seront interprétés comme $0$, s'ils sont compris entre $85$ et $170$, ils sont interprétés comme $1$ et s'ils sont compris entre $170$ et $255$, ils sont interprétés comme $2$. 
+\section{Difficultés rencontrées}
+\section{Etapes futures}
+
+\end{document}
