@@ -46,6 +46,11 @@
 	\subsection{Traduction de données formelles en mélodie}
 		La première étape a été d'établir une correspondance couleur/note. Dans un premier temps, et pour faciliter les correspondances, les couleurs on été réduites en intervalle rgb tel que $r,g,b \in [0,2]$. Ainsi, si $r$, $g$ ou $b$ sont compris entre $0$ et $85$, ils seront interprétés comme $0$, s'ils sont compris entre $85$ et $170$, ils sont interprétés comme $1$ et s'ils sont compris entre $170$ et $255$, ils sont interprétés comme $2$. 
 \section{Difficultés rencontrées}
-\section{Etapes futures}
+	Le projet étant étendu sur deux principales parties, les premières difficultés sont rapidement venues de pair. D'une part, la difficulté d'analyse d'images. \\
+	La première étape était de trouver une bibliothèque d'images suffisamment vaste pour pouvoir reconnaître les données necéssaire au projet, pour l'instant les formes. La seconde difficulté était de trouver un moyen efficace d'analyser les images : soit en réduisant le nombre de leurs couleurs, soit en réduisant directement leur qualité. 
+	D'autre part de l'analyse d'image, il y a eu les difficultés liées à la production musicale.\\
+	La première d'entre elles était de trouver un langage de sortie permettant l'écriture de la musique. Dans un premier temps, les bibliothèques de traitement midi sous java paraissaient une bonne solution. Puis, au fur et à mesure, le langage \emph{Sonic-pi} nous est apparu comme plus intuitif et adapté à la traduction de données formelles en musique.
+	La seconde difficulté concernant la traduction de données formelles en musique, a été et est toujours de trouver une représentation du rythme. Ce qu'il nous paraissait à priori le plus logique était de se servir des formes reconnues lors de l'analyse d'image et de les convertir en rythme.
+\section{Etapes futures} 
 
 \end{document}
