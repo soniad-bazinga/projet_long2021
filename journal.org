@@ -26,3 +26,12 @@
   - stocker les données de sortie dans une BDD/json?
   - générer du code sonic pi à partir de la couleur
   - calculer la couleur dominante
+
+<22/02/2022>
+* FAIT:
+ - début détection de couleur
+ - début détection de formes
+* TODO:
+ - réfléchir sur comment traduire le rythme (comment encoder les informations sur le rythme dans les entrées)
+ - continuer sur la détection de formes
+ - faire le lien entre la partie traitement d'image et génération de musique (formalisation des données)
