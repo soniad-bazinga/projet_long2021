@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: chopin.imageconverter.ConvertTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+chopin.imageconverter.ConvertTest.testRangeBase()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.Error: Unresolved compilation problem: 
+	at chopin.imageconverter.Convert.rangeBase(Convert.java:9)
+	at chopin.imageconverter.ConvertTest.testRangeBase(ConvertTest.java:19)
+
