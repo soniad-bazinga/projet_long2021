@@ -1,19 +1,18 @@
-package chopin.jsonreader;
+package chopin.jsonconverter;
 
-import static chopin.jsonreader.JsonReader.getColor;
+import static chopin.jsonconverter.JsonConverter.getColor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.LogManager;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for simple App.
  */
-public class JsonReaderTest {
+public class JsonConverterTest {
      String FILE = "src/main/java/chopin/resources/test.json";
 
     Logger log = Logger.getLogger("Log");
@@ -21,6 +20,7 @@ public class JsonReaderTest {
     @Test
     public void testGetColors(){
         Map<String, Float> expected = new HashMap<String, Float>();
+        expected.put( "#8a6c91", (float) 0.10);
         expected.put( "#f46c91", (float) 0.15);
         expected.put( "#f48f91", (float) 0.20);
         expected.put( "#f4f091", (float) 0.05);
@@ -35,9 +35,12 @@ public class JsonReaderTest {
         expected.put( "#d85ea2", (float) 0.07);
         
         Map<String, Float> toTest = getColor(FILE);
-        log.info(String.valueOf(expected));
-        log.info(String.valueOf(toTest));
         for (Map.Entry<String, Float> e : toTest.entrySet()) {
+            if (log.isLoggable(Level.INFO)){
+                log.info("Key : " + e.getKey());
+                log.info("Expected Value : " + expected.get(e.getKey()));
+                log.info("Real Value : " + e.getValue());
+            }
             assertEquals(expected.get(e.getKey()), e.getValue(), 
             "Echec de la convertion JSON : certaines paires ne sont pas les mêmes");
         }

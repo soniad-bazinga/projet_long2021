@@ -1,6 +1,6 @@
 package chopin;
 
-import chopin.jsonreader.JsonReader;
+import chopin.jsonconverter.JsonConverter;
 
 /**
  * Hello world!
@@ -13,6 +13,6 @@ public final class App {
     {
         String file = "src/main/java/chopin/resources/test.json";
 
-        JsonReader.getColor(file);
+        JsonConverter.getColor(file);
     }
 }
