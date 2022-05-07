@@ -1,8 +1,15 @@
 package chopin.imageconverter;
 
+import java.util.logging.Logger;
+
 public final class Utilities {
     
     private Utilities() {}
+
+    /**
+     * Logger.
+     */
+    static Logger log = Logger.getLogger("Log");
 
     public static void print(String[] tab){
         for (String str : tab){
@@ -21,5 +28,15 @@ public final class Utilities {
             }
         }
         return false;    
+    }
+
+    public static boolean contains(String[] container, String content) {
+        for (String s : container) {
+            if(s.equals(content)) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

@@ -1,6 +1,8 @@
 package chopin;
 
-import chopin.jsonconverter.JsonConverter;
+import java.util.logging.Logger;
+
+import chopin.imageconverter.Convert;
 
 /**
  * Hello world!
@@ -9,10 +11,16 @@ import chopin.jsonconverter.JsonConverter;
 public final class App {
 
     private App() {}
+
+    /**
+     * Logger.
+     */
+    static Logger log = Logger.getLogger("Log");
+    
     public static void main( String[] args )
     {
         String file = "src/main/java/chopin/resources/test.json";
 
-        JsonConverter.getColor(file);
+        log.info(Convert.convert(file));
     }
 }

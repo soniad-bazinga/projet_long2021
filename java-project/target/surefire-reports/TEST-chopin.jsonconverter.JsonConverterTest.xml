@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="0" failures="0" name="chopin.imageconverter.ConvertTest" time="0" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="chopin.jsonconverter.JsonConverterTest" time="0.06" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="16.0.1+9-Ubuntu-120.04"/>
@@ -54,4 +54,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
+  <testcase classname="chopin.jsonconverter.JsonConverterTest" name="chopin.jsonconverter.JsonConverterTest.testGetColors" time="0.06"/>
 </testsuite>

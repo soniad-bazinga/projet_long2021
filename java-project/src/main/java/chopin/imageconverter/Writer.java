@@ -1,50 +1,83 @@
 package chopin.imageconverter;
 
+import java.util.Map;
+import java.util.logging.Logger;
+
 public final class Writer {
 
     private Writer(){}
 
-    static String[] rangeNotes = new String[7];
+    /**
+     * Logger.
+     */
+    static Logger log = Logger.getLogger("Log");
 
-    //Initialise les rangeNote avec les notes de la gamme 
-    static void setRangeNotes(int range, boolean mode){
-        for (int i=0; i<3; i++) {
-            rangeNotes[i]=Convert.notes[(range+i*2)%12];
-        }
-        
-        if (mode) {
-            rangeNotes[2]=Convert.notes[(range+4)%12];
-        } else {
-            rangeNotes[2]=Convert.notes[(range+3)%12];
-        }
+    /** 
+     * Options allowed with note.
+     */
+    static String[] options = {"amp:", "release:"};
 
-        for (int i=3; i<7; i++) {
-            rangeNotes[i]=Convert.notes[(range+i*2-1)%12];
-        }
+    /**
+     * Sample available.
+     */
+    static String[] sampleDrum = {":drum_bass_hard", ":drum_cymbal_open", 
+        ":drum_snare_hard"};
+    static String[] sampleAmbient = {":ambi_glass_hum", ":ambi_haunted_hum", 
+        ":ambi_piano", ":ambi_choir"};
+    static String[] sampleGuit = {"sample :guit_e_fifths", "sample :guit_em9"};
 
+    /**
+     * Allows writing loop a certain number of times. 
+     * @param times number of time the program will repeat lo
+     * @param lo content of the loop
+     * @return loop under string form
+     */
+    static String loop(int times, String lo) {
+        return String.valueOf(times) + ".times do\n"
+                + lo
+                + "end\n";
     }
 
-    //On peut imaginer un argument forme pour marquer la rythmique
-    //TODO : change times, add choir etc
-    enum Forme {ROND, TRIANGLE, CARRE};
-    static String backSample(Forme f) throws RangeNoteNull{
-        if (!Utilities.isNull(rangeNotes)){
-            String ret = "200.times do\n\tplay :"+rangeNotes[0]+"\n\tsleep 0.5\n\tplay :"+
-            rangeNotes[1]+"\n\tsleep 0.5\n\tplay :"+rangeNotes[2]+"\n\tsleep 0.5\n";
-            switch(f){
-                case ROND:
-                    return ret + "\tplay :"+rangeNotes[1]+"end"; 
-                case TRIANGLE:
-                    return ret + "end"; 
-                case CARRE:
-                    return ""; 
-                default:
-                    return "";
+    /**
+     * Allows writing loop an infinite number of times. 
+     * @param lo content of the loop
+     * @return loop under string form
+     */
+    static String loop(String lo) {
+        return "loop do\n"
+                + lo
+                +"end\n";
+    }
+
+    /**
+     * Writing note. 
+     * @param n note
+     * @param opt option and value's option
+     * @return note under string form
+     */
+    static String note(String n, Map<String,Float> opt){
+        String ret = "play :" + n;
+        if (opt != null) {
+            for (Map.Entry<String, Float> e : opt.entrySet()) {
+                if (Utilities.contains(options, e.getKey())) {
+                    ret += ", " + e.getKey() + " " + e.getValue();
+                }
             }
-  
         }
- 
-        throw new RangeNoteNull();
+        return  ret + "\n";
     }
+
+    static String sample(boolean cool, boolean light) {
+        if (cool && light) {
+            return sampleAmbient[3];
+        } else if (cool) {
+            return sampleAmbient[1];
+        } else if (light) {
+            return sampleAmbient[0];
+        } else {
+            return sampleAmbient[2];
+        }
+    }
+
 
 }

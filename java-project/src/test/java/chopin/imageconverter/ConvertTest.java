@@ -1,6 +1,11 @@
 package chopin.imageconverter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,20 +15,64 @@ import org.junit.jupiter.api.Test;
 public class ConvertTest {
 
     @Test
-    public void testRangeBase(){
-        try{
-            String toTest = "";
-            for (int i=0; i<3; i++){
-                for (int j=0; j<3; j++){
-                    for (int k=0; k<3; k++){
-                        toTest = toTest + Convert.notes[Convert.rangeBase(i*126,j*126,k*126)] + " ";
-                    }
-                }
-            }
-            String expected = "D# A A C A# A C B A# E G G# C# F# G# C# B A# E F F# D# F G D D D ";
-            assertEquals(toTest, expected, "rangeBase failed");
-        }catch(PatternNotExhaustive e){
-            e.printStackTrace();         
-        }
+    public void convertTest(){
+        
+    }
+
+    @Test
+    public void rangeBaseTest(){
+        Map<String, Float> colors = new HashMap<String, Float>();
+        colors.put( "#8a6c91", (float) 0.10);
+        colors.put( "#f46c91", (float) 0.15);
+        colors.put( "#f48f91", (float) 0.20);
+        colors.put( "#f4f091", (float) 0.05);
+        colors.put( "#f4f042", (float) 0.30);
+        colors.put( "#644c42", (float) 0.03);
+        colors.put( "#644cca", (float) 0.02);
+        colors.put( "#58d2ca", (float) 0.07);
+        colors.put( "#58d223", (float) 0.09);
+        colors.put( "#58d2ff", (float) 0.08);
+        colors.put( "#d8d2ff", (float) 0.01);
+        colors.put( "#d85e09", (float) 0.03);
+        colors.put( "#d85ea2", (float) 0.07);
+
+        Convert.setColors(colors);
+        int range = Convert.rangeBase(Convert.mainColor());
+        String toTest = Convert.notes[range];
+        assertEquals(toTest, "D", "rangeBase failed");
+    }
+
+    @Test
+    public void modeTest(){
+        assertEquals(true, Convert.mode("#ffffff"));
+        assertEquals(false, Convert.mode("#000000"));
+        assertThrows(
+            IllegalArgumentException.class, 
+            () -> {
+                Convert.mode("zkjfdz");
+            });
+    }
+
+    @Test
+    public void mainColorTest(){
+        Map<String, Float> colors = new HashMap<String, Float>();
+        colors.put( "#8a6c91", (float) 0.10);
+        colors.put( "#f46c91", (float) 0.11);
+        colors.put( "#f48f91", (float) 0.20);
+        colors.put( "#f4f091", (float) 0.301);
+        colors.put( "#f4f042", (float) 0.30);
+        colors.put( "#644c42", (float) 0.03);
+        colors.put( "#644cca", (float) 0.02);
+        colors.put( "#58d2ca", (float) 0.07);
+        colors.put( "#58d223", (float) 0.09);
+        colors.put( "#58d2ff", (float) 0.08);
+        colors.put( "#d8d2ff", (float) 0.01);
+        colors.put( "#d85e09", (float) 0.03);
+        colors.put( "#d85ea2", (float) 0.07);
+
+        Convert.setColors(colors);
+        assertEquals(Convert.mainColor(), "#f4f091", "mainColor failed");
+        colors.remove("#f4f091");
+        assertNotEquals(Convert.mainColor(), "#f4f091", "mainColor failed");
     }
 }

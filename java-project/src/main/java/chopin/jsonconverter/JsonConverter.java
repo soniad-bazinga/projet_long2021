@@ -11,10 +11,18 @@ import org.json.JSONArray;
  
 public final class JsonConverter {
 
+    /**
+     * Logger.
+     */
     static Logger log = Logger.getLogger("Log");
 
     private JsonConverter () {}
 
+    /**
+     * Return list color from JSONFile file
+     * @param file file
+     * @return Map of (color, frequency)
+     */
     public static Map<String, Float> getColor (String file) {
         Logger.getLogger("Log").setLevel(Level.ALL);
         JSONObject content = parseFile(file);
@@ -35,6 +43,11 @@ public final class JsonConverter {
         return colorMap;
     }
 
+    /**
+     * Convert a file into JSONObject
+     * @param file path file
+     * @return JSONObject corresponding
+     */    
     private static JSONObject parseFile(String file) 
     {
         String fileContent;
