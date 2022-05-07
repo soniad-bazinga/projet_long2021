@@ -46,6 +46,7 @@ def get_colors(image, nb_couleurs, tmp):
     # on peut les ordonner  ?
     ordered_colors = [couleur_principales[i] for i in compteur.keys()]
     hex_colors = [RGBtoHEX(ordered_colors[i]) for i in compteur.keys()]
+    # dans le cas où on veut renvoyer les valeurs en RGB plutot qu'en hex
     rgb_colors = [ordered_colors[i] for i in compteur.keys()]
 
     if(tmp):
@@ -56,9 +57,8 @@ def get_colors(image, nb_couleurs, tmp):
         plt.figure(figsize=(8, 6))
         plt.pie(compteur.values(), labels=hex_colors, colors=hex_colors)
     # construire un dictionnaire pour renvoyer les valeurs avec leurs pourcentages
-    build_dico(compteur, hex_colors)
 
-    return hex_colors
+    return build_dico(compteur, hex_colors)
 
 
 def build_dico(compteur, hex_colors):
@@ -66,8 +66,8 @@ def build_dico(compteur, hex_colors):
     dict = {}
     for i in compteur.keys():
         freq = compteur[i] / sum_data  # de 0 à 1
-        dict.update({hex_colors[i]: "%.2f" % freq})
-    print("\ncouleurs: ", dict)
+        dict.update({hex_colors[i]: float("%.2f" % freq)})
+    return dict
 
 
 if __name__ == "__main__":
@@ -87,10 +87,13 @@ if __name__ == "__main__":
 
     # to resize the image when needed
     colors_string = get_colors(get_image('tableau1.jpg'), 6, True)
-    #print(colors_string[i] for i in range(len(colors_string)))
     # color identification part
-    # RGB to hex conversion
-    colors_string
+    dico_couleurs = colors_string
+    # serializing json
+    # write the output data in a json file
+    with open("colors.json", "w") as outfile:
+        json.dump(dico_couleurs, outfile)
+    # pour l'affichage
     plt.show()
 
     # ce programme doit retourner:
