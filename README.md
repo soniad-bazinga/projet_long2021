@@ -35,3 +35,21 @@ Semaine pro:
 Certains langages permettent de génerer de la musique : Sonic-Pi, Nyquist.
 Libriaries d'images.
 Faire un rapport avec les recherches et idées que l'on a jusqu'ici.
+
+
+-----------------------------------------
+**Paquets à installer:
+
+	1.Numpy:
+		pip install numpy
+	2. sklearn.cluster:
+		pip install scikit-learn
+	3. matplotlib:
+		pip install -U matplotlib
+	4. OpenCV:
+		sudo apt-get install python3-opencv
+	5. scikit image:
+		python3 -m pip install -U scikit-image
+	6. collections: already built-in :) 
+
+

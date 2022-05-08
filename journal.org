@@ -14,3 +14,15 @@
 - mettre en avant la partie traitement d'image
 - réfléchir sur comment le programme va interpréter les informations à partir des entrées
 - commencer à travailler sur le prétraitement des entrées
+
+<01/02/2022>
+* FAIT :
+  - données : ~ 10000 disponibles (beaucoup moins pour les tests pour l'instant)
+  - traitement des images en python keras
+  - game principale : basée sur la couleur dominante
+
+* TODO :
+  - simplifier les donneées au maximum (réduire la résolution)
+  - stocker les données de sortie dans une BDD/json?
+  - générer du code sonic pi à partir de la couleur
+  - calculer la couleur dominante
