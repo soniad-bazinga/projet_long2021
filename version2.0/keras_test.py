@@ -12,13 +12,13 @@ os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 
 train_ds = keras.utils.image_dataset_from_directory(
-    directory='../neural_network/training_data/',
+    directory='./neural_network/training_data/',
     labels='inferred',
     label_mode='categorical',
     batch_size=32,
     image_size=(256, 256))
 validation_ds = keras.utils.image_dataset_from_directory(
-    directory='../neural_network/validation_data/',
+    directory='./neural_network/validation_data/',
     labels='inferred',
     label_mode='categorical',
     batch_size=32,
