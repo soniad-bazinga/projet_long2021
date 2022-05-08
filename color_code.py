@@ -1,4 +1,5 @@
 import os
+import sys
 import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
@@ -72,8 +73,9 @@ def build_dico(compteur, hex_colors):
 
 if __name__ == "__main__":
 
+    print(sys.argv[1])
     # reading images using cv2
-    image = cv2.imread('tableau1.jpg')
+    image = cv2.imread(sys.argv[1])
     #print("The type of this input is {}".format(type(image)))
     #print("shape: {}".format(image.shape))
     # exemple d'affichage: (2456, 4856, 3)
@@ -86,7 +88,7 @@ if __name__ == "__main__":
     plt.imshow(image)
 
     # to resize the image when needed
-    colors_string = get_colors(get_image('tableau1.jpg'), 6, True)
+    colors_string = get_colors(get_image(sys.argv[1]), 6, True)
     # color identification part
     dico_couleurs = colors_string
     # serializing json
