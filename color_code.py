@@ -64,11 +64,18 @@ def get_colors(image, nb_couleurs, tmp):
 
 def build_dico(compteur, hex_colors):
     sum_data = sum(compteur.values())
-    dict = {}
+    colorslist = []
+
     for i in compteur.keys():
+        dict = {}
         freq = compteur[i] / sum_data  # de 0 à 1
-        dict.update({hex_colors[i]: float("%.2f" % freq)})
-    return dict
+        dict.update({"color": hex_colors[i]})
+        dict.update({"freq": "%.2f" % freq})
+        colorslist.append(dict)
+    data = {"data":
+            {"colorList": colorslist}}
+
+    return data
 
 
 if __name__ == "__main__":
