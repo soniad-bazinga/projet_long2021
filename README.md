@@ -1,43 +1,3 @@
-# dahmani-santos-2021
-
-Module de Projet de Programmation 2021-2022
-
-Sujet du projet:  Créer une IA capable de composer une mélodie inspirée d'une peinture.
-
-Étapes de réalisation: (en gros)
-
-1- Identifier le genre du tableau:
-
-	i. Le genre "Noble": sujet religieux, sujet mythologique, sujet historique, sujet allégorique (idée abstraite représentée sous la forme d'une personne humaine, ex Marianne= République). 
-
-	ii. La "petite manière": portrait, scène de guerre, nature morte, paysage. 
-
-	iii. Le "non figuratif": art abstrait. 
-
---> Réalisation: s'appuyer sur du deep learning. Les algorithmes de deep learning vont determiner quels facteurs/parties du tableaux sont utiles pour différencier les genres. Exemple: l'objet central du tableau qui peut etre un visage donc portrait, ou bien des arbres donc nature...etc. 
-
---> Résultat à avoir atteint à la fin de cette étape: un agent capable de reconnaitre le genre d'une peiture.  
-
---> Utiliser deux agents: 
-
-1- Picasso: agent qui étudie le tableau et retourne les informations recueillies dessus comme le genre, l'ambiance, les couleurs, les formes...Doit pouvoir assigner à ce tableau une sorte de "mood" ou d'ambiance. 
-
-
-2- Chopin: (deep learning aussi) agent qui sera capable de composer une mélodie basée sur les informations renvoyées par Picasso. Cet agent utilisera aussi des algo de (deep learning ou machine learning): faire appel à des logiciels qui ont répertorié, emmagasiné et codé des milliers de morceaux, d'arrangements, de partitions et de notes. Ces logiciels analysent ces données pour décrypter les méthodes de composition. Ils mettront ensuite en évidence les notes à utiliser pour corréspondre le plus possible à la peinture. Il suffira donc de proposer des mélodies de base au logiciel, différenciée par l'ambiance ou le genre??.
-
-Composer une petite mélodie d'une dizaine de secondes, utilisant un ou deux instruments, pas une musique complète. 
-
-**Point qui reste à clarifier: **
-La manière de composer la mélodie. Idée: Chopin se base sur une série de données, des mélodies classées par "mood" ou ambiance. Il devra ensuite créer une nouvelle mélodie (avec des fonctions mathématiques pour produire un truc plus jolie que juste du bruit) à partir des mélodie du meme registre. 
-L'idée est de récupérer des éléments clef de la peinture : les couleurs, les nuances, les formes, et de leur associer des éléments musicaux : la tonalité, le rythme, les notes. Les librairies de java permettant de gérer les fichiers midi seraient à prendre en compte dans le processus de création du fichier musical.
-
-Semaine pro:
-Certains langages permettent de génerer de la musique : Sonic-Pi, Nyquist.
-Libriaries d'images.
-Faire un rapport avec les recherches et idées que l'on a jusqu'ici.
-
-
------------------------------------------
 **Paquets à installer:
 
 	1.Numpy:
@@ -51,5 +11,15 @@ Faire un rapport avec les recherches et idées que l'on a jusqu'ici.
 	5. scikit image:
 		python3 -m pip install -U scikit-image
 	6. collections: already built-in :) 
+
+## Pour exécuter le projet :
+# Pour la partie reconnaissance d'image : depuis la racine du projet
+	La commande suivante produit un fichier *colors.json* :
+	python3 color-code.py *nom-de_l'image*
+# Pour la partie conversion musique : depuis /java-project
+	La commande suivante récupère *colors.json* et produit un fichier *conversion.txt* :
+	mvn compile  
+	mvn exec:java -Dexec.mainClass=chopin.App
+
 
 

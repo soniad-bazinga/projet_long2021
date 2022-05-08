@@ -1,7 +1,9 @@
 package chopin;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
+import chopin.filewriter.FileWriter;
 import chopin.imageconverter.Convert;
 
 /**
@@ -19,8 +21,12 @@ public final class App {
     
     public static void main( String[] args )
     {
-        String file = "src/main/java/chopin/resources/test.json";
-
-        log.info(Convert.convert(file));
+        String file = "../colors.json";
+        
+        try {
+            FileWriter.write("../conversion.txt", Convert.convert(file));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

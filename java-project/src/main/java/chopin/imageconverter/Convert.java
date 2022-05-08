@@ -33,7 +33,7 @@ public final class Convert{
     /**
      * Max number of loops.
      */
-    static int MAX_LOOP = 5;
+    static int MAX_LOOP = 3;
 
     /**
      * 
