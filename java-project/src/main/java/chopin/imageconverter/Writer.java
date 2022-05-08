@@ -24,7 +24,7 @@ public final class Writer {
         ":drum_snare_hard"};
     static String[] sampleAmbient = {":ambi_glass_hum", ":ambi_haunted_hum", 
         ":ambi_piano", ":ambi_choir"};
-    static String[] sampleGuit = {"sample :guit_e_fifths", "sample :guit_em9"};
+    static String[] sampleGuit = {":guit_e_fifths", ":guit_em9"};
 
     /**
      * Allows writing loop a certain number of times. 
@@ -67,7 +67,7 @@ public final class Writer {
         return  ret + "\n";
     }
 
-    static String sample(boolean cool, boolean light) {
+    static String sampleAmbient(boolean cool, boolean light) {
         if (cool && light) {
             return sampleAmbient[3];
         } else if (cool) {
@@ -77,6 +77,10 @@ public final class Writer {
         } else {
             return sampleAmbient[2];
         }
+    }
+
+    static String sampleGuit(boolean cool) {
+        return sampleGuit[cool ? 0 : 1];
     }
 
 

@@ -49,7 +49,15 @@ public final class Convert{
         Float max = colors.get(color);
         String ret = "";
         int times;
+        float prec = 1;
         for (Map.Entry<String, Float> e : colors.entrySet()) {
+            if (prec - e.getValue() >= 0.05) {
+                ret += "sample ";
+                ret += Writer.sampleGuit(
+                    getBlue(e.getKey()) > getRed(e.getKey()));
+                ret += "\n";
+                prec = e.getValue();
+            }
             times = (int) ((e.getValue()*MAX_LOOP)/max);
             if (times == 0) {
                 ret += convertNote(e.getKey(), 3);
@@ -65,12 +73,12 @@ public final class Convert{
 
     static private String convertColor(String color) {
         String ret = "sample ";
-        ret += Writer.sample(
+        ret += Writer.sampleAmbient(
             getBlue(color) > getRed(color), 
             (getRed(color) 
             + getGreen(color) 
             + getBlue(color))/3 > 127);
-        ret += "\n";
+        ret +="\n";
         for (int i = 0; i < 3; i++){
             ret += convertNote(color, i);
             ret += "\n";
