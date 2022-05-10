@@ -1,85 +1,75 @@
 sample :guit_em9
 1.times do
-sample :ambi_glass_hum
-play :Gb, release: 1.0, amp: 0.33333334
-sleep 0.33333334
+sample :ambi_piano
+play :Ab, release: 2.0, amp: 0.6666667
+sleep 0.6666667
 
-play :Ab, release: 1.0, amp: 0.33333334
-sleep 0.33333334
+play :Bb, release: 1.5, amp: 0.5
+sleep 0.5
 
-play :Bb, release: 1.0, amp: 0.33333334
-sleep 0.33333334
+play :B, release: 1.5, amp: 0.5
+sleep 0.5
 
-sleep 0.33333334
+sleep 0.5555556
 end
-sleep 0.33333334 
-1.times do
+sleep 0.5555556 
+2.times do
+sample :ambi_haunted_hum
+play :B, release: 2.0, amp: 0.6666667
+sleep 0.6666667
+
+play :Db, release: 1.5, amp: 0.5
+sleep 0.5
+
+play :Eb, release: 1.5, amp: 0.5
+sleep 0.5
+
+sleep 0.5555556
+end
+sleep 0.5555556 
+sample :guit_e_fifths
+play :B, release: 1.6666667, amp: 0.5555556
+sleep 0.5555556
+sleep 0.5555556 
+3.times do
 sample :ambi_choir
-play :Gb, release: 1.0, amp: 0.33333334
+play :Db, release: 1.0, amp: 0.33333334
 sleep 0.33333334
 
-play :Ab, release: 1.0, amp: 0.33333334
-sleep 0.33333334
-
-play :Bb, release: 0.5, amp: 0.16666667
-sleep 0.16666667
-
-sleep 0.2777778
-end
-sleep 0.2777778 
-2.times do
-sample :ambi_piano
-play :Ab, release: 1.0, amp: 0.33333334
-sleep 0.33333334
-
-play :Bb, release: 1.5, amp: 0.5
+play :Eb, release: 1.5, amp: 0.5
 sleep 0.5
 
-play :C, release: 1.5, amp: 0.5
-sleep 0.5
-
-sleep 0.44444445
-end
-sleep 0.44444445 
-4.times do
-sample :ambi_piano
-play :Ab, release: 1.0, amp: 0.33333334
-sleep 0.33333334
-
-play :Bb, release: 1.5, amp: 0.5
-sleep 0.5
-
-play :C, release: 1.5, amp: 0.5
+play :F, release: 1.5, amp: 0.5
 sleep 0.5
 
 sleep 0.44444445
 end
 sleep 0.44444445 
 2.times do
-sample :ambi_glass_hum
-play :Bb, release: 1.0, amp: 0.33333334
+sample :ambi_haunted_hum
+play :Db, release: 1.0, amp: 0.33333334
 sleep 0.33333334
 
-play :C, release: 0.5, amp: 0.16666667
-sleep 0.16666667
-
-play :D, release: 1.0, amp: 0.33333334
-sleep 0.33333334
-
-sleep 0.2777778
-end
-sleep 0.2777778 
-5.times do
-sample :ambi_piano
-play :Ab, release: 1.0, amp: 0.33333334
-sleep 0.33333334
-
-play :Bb, release: 1.5, amp: 0.5
+play :Eb, release: 1.5, amp: 0.5
 sleep 0.5
 
-play :C, release: 1.5, amp: 0.5
+play :F, release: 1.5, amp: 0.5
 sleep 0.5
 
 sleep 0.44444445
 end
 sleep 0.44444445 
+2.times do
+sample :ambi_haunted_hum
+play :B, release: 2.0, amp: 0.6666667
+sleep 0.6666667
+
+play :Db, release: 1.5, amp: 0.5
+sleep 0.5
+
+play :Eb, release: 1.5, amp: 0.5
+sleep 0.5
+
+sleep 0.5555556
+end
+sleep 0.5555556 

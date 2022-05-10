@@ -1,0 +1,19 @@
+{
+    "data": {
+        "colorList": [
+            { "color" : "#8a6c91", "freq" : "0.10"},
+            { "color" : "#f46c91", "freq" : "0.15"},
+            { "color" : "#f48f91", "freq" : "0.2"},
+            { "color" : "#f4f091", "freq" : "0.05"},
+            { "color" : "#f4f042", "freq" : "0.3"},
+            { "color" : "#644c42", "freq" : "0.03"},
+            { "color" : "#644cca", "freq" : "0.02"},
+            { "color" : "#58d2ca", "freq" : "0.07"},
+            { "color" : "#58d223", "freq" : "0.09"},
+            { "color" : "#58d2ff", "freq" : "0.08"},
+            { "color" : "#d8d2ff", "freq" : "0.01"},
+            { "color" : "#d85e09", "freq" : "0.03"},
+            { "color" : "#d85ea2", "freq" : "0.07"}
+        ]
+    } 
+}
